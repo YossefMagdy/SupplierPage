@@ -10,6 +10,6 @@ export class CurrentLangService {
   }
 
   getCurrentLang() {
-    return localStorage.getItem("lang") || "en";
+    return localStorage.getItem("lang") || "ar";
   }
 }

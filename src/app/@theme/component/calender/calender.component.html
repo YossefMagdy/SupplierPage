@@ -21,7 +21,7 @@
            <div  *ngIf="!canRemove  " class="mx-3 AddMore" (click)="addMoreThisDay()" style="cursor: pointer;"><span class="bg-dark-subtle p-1 rounded-2"><i class="fa-solid fa-plus"></i></span></div>
 
            <div  *ngIf="canRemove" class="mx-3 AddMore" (click)="Remove()" style="cursor: pointer;"><span class="bg-dark-subtle p-1 rounded-2"><i class="fa-solid fa-minus"></i></span></div>
-           <div  *ngIf="UseCopy" class="me-5 AddMore" (click)="copyActive=!copyActive" style="cursor: pointer;"><span   [ngClass]="{'bg-dark-subtle':!copyActive,'bg-primary':copyActive}" class=" p-1 rounded-2"><i class="fa-regular fa-copy"></i></span></div>
+           <div  *ngIf="UseCopy" class="mx-2 AddMore" (click)="copyActive=!copyActive" style="cursor: pointer;"><span   [ngClass]="{'bg-dark-subtle':!copyActive,'bg-primary':copyActive}" class=" p-1 rounded-2"><i class="fa-regular fa-copy"></i></span></div>
 
       </div>
 
