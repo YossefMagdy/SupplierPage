@@ -1,0 +1,11 @@
+<div class="d-flex ">  
+    <div class="toggleDiv">
+        <div class="firstFirst "  [ngClass]="{'bg-primary':!ToggleButton,'bg-dark-subtle':ToggleButton}" (click)="ToggleButton=!ToggleButton;StatusChange()">
+            <div class="Circle mx-1" [ngStyle]="{right:ToggleButton?'0':'',left:!ToggleButton?'0':''}">
+            </div>
+        </div>
+    </div>
+    <p *ngIf="ActiveWork" class="m-0 me-3">{{(ToggleButton? 'inactive' :'active')|translate}}</p>
+    <p *ngIf="text.length>0" class="m-0 me-3">{{text}}</p>
+</div>
+

@@ -1,0 +1,30 @@
+
+
+  img{
+    width: 100px;
+    height:120px;
+    border-radius: 50%;
+    background-color: gray;
+  }
+  .Image{
+    text-align: end;
+    position: relative;
+    label {
+        position: absolute;
+        background-color: #0771de;
+        width: 26px;
+        height: 26px;
+        text-align: center;
+        color: white;
+        left: 10px;
+        font-family: sans-serif;
+        border-radius: 50%;
+        cursor: pointer;
+        i{
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%,-50%);
+        }
+      }
+  }

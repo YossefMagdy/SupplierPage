@@ -1,0 +1,41 @@
+.reservation{
+    background-color: white;
+}
+
+.arrow{
+    position: relative;
+
+    i{
+        position: absolute;
+        top: 50%;
+        left: 7px;
+        font-size: 10px;
+        transform: translateY(-50%);
+    }
+}
+
+.DivInput{
+    height: 45px;
+    i{
+        font-size: 10px;
+    }
+    
+}
+
+.personCounter{
+    height: 35px;
+ .ArrowDIV{
+    height: 10PX;
+ }
+    i{
+        font-size: 7px;
+    }
+}
+
+.firstContainer{
+    height: 260px;
+}
+.secoundContainer{
+    height: 250px;
+
+}

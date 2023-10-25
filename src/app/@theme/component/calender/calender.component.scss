@@ -1,0 +1,43 @@
+.starttime,.endtime{
+    width: 350px;
+}
+
+.spacer{    
+
+     margin: 28px 1em;
+}
+
+.AddMore{
+    margin-top: 31px;
+}
+.toggleButton{
+    width: 140px;
+}
+
+@media  (max-width:1215px) {
+    .starttime,.endtime{
+        width: 250px;
+    }
+}
+
+@media  (max-width:996px) {
+    .starttime,.endtime{
+        width: 150px;
+    }
+}
+@media  (max-width:794px) {
+    .starttime,.endtime{
+        width: auto;
+    }
+}
+
+@media  (max-width:794px) {
+    .starttime,.endtime{
+        width: 100px;
+    }
+}
+@media  (max-width:582px) {
+    .starttime,.endtime{
+        width: 70px;
+    }
+}

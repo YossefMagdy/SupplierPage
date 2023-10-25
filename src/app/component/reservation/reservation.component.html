@@ -1,0 +1,276 @@
+<div class="text-center mt-3">
+    <button class="btn btn-primary" (click)="changeLangage('ar')">Arabic</button>
+    <button class="btn btn-dark mx-2" (click)="changeLangage('en')">English</button>
+</div>
+
+
+<div class="container mt-4 pb-5 ">
+    <div class="d-flex justify-content-between align-items-center">
+
+        <div class="d-flex">
+            <app-back-button></app-back-button>
+            <p class="me-2 m-0">{{"Addnewresources"|translate}}</p>
+        </div>
+
+        <div class="d-flex align-items-center ">
+            <app-toggle-button [ActiveWork]="true"></app-toggle-button>
+            <app-button Addclass="btn btn-dark  mx-4" name="saveChange"></app-button>
+            <app-button Addclass="btn btn-outline-danger" Icon="fa-regular fa-trash-can" name="SupplierRemove"></app-button>
+        </div>
+    </div>
+
+    <div class="row mt-3">
+
+
+        <div class="col-xl-6 col-md-12 mb-4 firstContainer ">
+            <div class="bg-white p-4 rounded-4 d-flex justify-content-end align-items-center w-100">
+                <app-PhotoUploader></app-PhotoUploader>
+
+                <div class="flex-grow-1 mx-4 ">
+                    <label for="SupplierName" class="mb-3 text-muted text-start">{{'SupplierName'|translate}}</label>
+                    <input class="form-control text-start" id="SupplierName" type="text">
+                </div>
+            </div>
+
+            <div class="bg-white p-3 d-flex  mt-4 rounded-3">
+
+                <div>
+                    <p class="m-0  text-muted">{{'ResourceType'|translate}}</p>
+                </div>
+                <div class="d-flex">
+                    <div class="mx-3">
+                        <input class="radio" type="radio" name="day">
+                        <label for="today" class="ms-2 text-muted">حجز مده ( اكثر من يوم )</label>
+                    </div>
+                    <div class="">
+                        <input class="radio" type="radio" name="day">
+                        <label for="today" class="ms-2 text-muted">حجز خلال اليوم</label>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+
+        <div class="col-xl-6 col-md-12 secoundContainer bg-white  rounded-4">
+            <div class="py-3 ">
+                <div class="">
+                    <p class="text-muted mb-1 m-0 ">المورد متاح الي</p>
+                    <div class="d-flex DivInput justify-content-between align-items-center form-control">
+                        <div class="d-flex justify-content-end align-items-center">
+                            <div>
+                                <i class="fa-solid fa-chevron-up d-block" style="cursor: pointer;"
+                                    (click)="counter=counter+1"></i>
+                                <i class="fa-solid fa-chevron-down" style="cursor: pointer;"
+                                    (click)="counter=counter-1;counter<0?counter=0:counter"></i>
+                            </div>
+                            <p class="m-0 me-2">{{counter}}</p>
+
+
+                        </div>
+                        <div class="arrow">
+                            <select class="form-control" name="" id="">
+                                <option selected value="">شهر</option>
+                                <option value="JAN">JAN</option>
+                                <option value="FEB">FEB</option>
+                                <option value="MAR">MAR</option>
+                                <option value="APR">APR</option>
+                                <option value="MAY">MAY</option>
+                                <option value="JUN">JUN</option>
+                                <option value="JUL">JUL</option>
+                                <option value="AUG">AUG</option>
+                                <option value="SEP">SEP</option>
+                                <option value="OCT">OCT</option>
+                                <option value="NOV">NOV</option>
+                                <option value="DEC">DEC</option>
+                            </select>
+                            <i class="fa-solid fa-chevron-down" style="cursor: pointer;"></i>
+
+                        </div>
+
+
+                    </div>
+                </div>
+
+                <div class="mt-2">
+                    <div class=" mt-2">
+                        <p class="text-muted m-0">وقت المورد</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="d-flex ">
+                                <div class="mx-2">
+                                    <input id="SERVICE" type="radio" name="time" (click)="choseTime='ServiceTime'">
+                                    <label for="SERVICE"><i class="fa-brands fa-xbox mx-2"></i>وقت الخدمه </label>
+                                </div>
+                                <div>
+                                    <input id="fixed" type="radio" name="time" (click)="choseTime='fixedtime'">
+                                    <label for="fixed"><i class="fa-regular fa-clock mx-2"></i> وقت ثابت</label>
+                                </div>
+                            </div>
+                            <div class="justify-content-between d-flex  align-items-center form-control w-50  "
+                                *ngIf="choseTime=='fixedtime'">
+                                <span (click)="Timer=Timer+1" style="cursor: pointer;"
+                                    class="p-2 rounded-3 bg-primary"><i class="fa-solid fa-plus d-block"></i></span>
+                                <p class="m-0">{{Timer}} <span class="ms-1">دقيقه</span></p>
+                                <span (click)="Timer=Timer-1" style="cursor: pointer;"
+                                    class="p-2 rounded-3 bg-primary"><i class="fa-solid fa-minus d-block"></i> </span>
+                            </div>
+                        </div>
+
+                        <div>
+                        </div>
+
+                    </div>
+
+
+
+
+
+                </div>
+
+
+                <div class="mt-1">
+                    <div class="mt-1">
+                        <p class="text-muted mb-1">الحجز المتعدد </p>
+
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="d-flex ">
+                                <div class="mx-2">
+                                    <input id="onePerson" type="radio" (click)="ReservationPerson='onePerson'"
+                                        name="Person">
+                                    <label for="onePerson"><i class="fa-regular fa-user mx-2"></i>حجز واحد فقط</label>
+                                </div>
+                                <div>
+                                    <input id="morethanone" type="radio" name="Person"
+                                        (click)="ReservationPerson='MoreThanOne'">
+                                    <label for="morethanone"><i class="fa-solid fa-users mx-3"></i>حجز اكثر من شخص لنفس
+                                        الموعد </label>
+                                </div>
+                            </div>
+
+                            <div class="justify-content-between d-flex  align-items-center form-control w-25 personCounter "
+                                *ngIf="ReservationPerson=='MoreThanOne'">
+                                <div class="d-flex justify-content-end align-items-center">
+                                    <div class="mt-1">
+                                        <i class="fa-solid fa-chevron-up d-block" style="cursor: pointer;"
+                                            (click)="NumOfPerson=NumOfPerson+1"></i>
+                                        <i class="fa-solid fa-chevron-down" style="cursor: pointer;"
+                                            (click)="NumOfPerson=NumOfPerson-1;NumOfPerson<0?NumOfPerson=0:NumOfPerson"></i>
+                                    </div>
+                                    <p class="m-0 me-2">{{NumOfPerson}}</p>
+
+
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div>
+
+                        </div>
+
+                    </div>
+
+
+
+
+
+                </div>
+
+            </div>
+        </div>
+
+
+        <div class="mt-1 bg-white p-4 rounded-4">
+
+            <div class="d-xl-flex justify-content-between">
+                <div>
+                    <p class="m-0">حدد مواعيد العمل للمورد</p>
+                    <span class="text-muted">تكوين إعدادات الأسبوع الخاص بك هنا. ما عليك سوى تحريك أشرطة التمرير وإضافة
+                        /
+                        إزالة أوقات الراحة لإعداد
+                        ساعات العمل.</span>
+                </div>
+                <div class="text-xl-start text-center mt-xl-0 mt-4">
+                    <app-button Addclass="btn btn-outline-dark text-muted border-dark-subtle mx-3"
+                        name="اعدادات متقدمه"></app-button>
+                    <app-button Addclass="btn btn-primary" name="اعدادات تقليديه"></app-button>
+                </div>
+            </div>
+
+
+            <div class="mt-4">
+                <div class="">
+
+                    <div>
+                        <app-calender (addMore)="addMore($event)" [UseCopy]="true" [UseCopy]="true"
+                            [HideTogglebutton]="true" [text]="'السبت'"></app-calender>
+                        <div *ngFor="let x of Sat;let i=index">
+                            <app-calender (remove)="remove($event,i)" [canRemove]="true" [HideTogglebutton]="false"
+                                [text]="'السبت'"></app-calender>
+                        </div>
+                    </div>
+
+                    <div>
+                        <app-calender (addMore)="addMore($event)" [UseCopy]="true" [HideTogglebutton]="true"
+                            [text]="'الاحد'"></app-calender>
+                        <div *ngFor="let x of sun;let i=index">
+                            <app-calender (remove)="remove($event,i)" [canRemove]="true" [HideTogglebutton]="false"
+                                [text]="'الاحد'"></app-calender>
+                        </div>
+                    </div>
+
+                    <div>
+                        <app-calender (addMore)="addMore($event)" [UseCopy]="true" [HideTogglebutton]="true"
+                            [text]="'الاتنين'"></app-calender>
+                        <div *ngFor="let x of mon;let i=index">
+                            <app-calender (remove)="remove($event,i)" [canRemove]="true" [HideTogglebutton]="false"
+                                [text]="'الاتنين'"></app-calender>
+                        </div>
+                    </div>
+
+                    <div>
+                        <app-calender (addMore)="addMore($event)" [UseCopy]="true" [HideTogglebutton]="true"
+                            [text]="'الثلاثاء'"></app-calender>
+                        <div *ngFor="let x of tue;let i=index">
+                            <app-calender (remove)="remove($event,i)" [canRemove]="true" [HideTogglebutton]="false"
+                                [text]="'الثلاثاء'"></app-calender>
+                        </div>
+                    </div>
+                    <div>
+                        <app-calender (addMore)="addMore($event)" [UseCopy]="true" [HideTogglebutton]="true"
+                            [text]="'الاربعاء'"></app-calender>
+                        <div *ngFor="let x of wed;let i=index">
+                            <app-calender (remove)="remove($event,i)" [canRemove]="true" [HideTogglebutton]="false"
+                                [text]="'الاربعاء'"></app-calender>
+                        </div>
+                    </div>
+                    <div>
+                        <app-calender (addMore)="addMore($event)" [UseCopy]="true" [HideTogglebutton]="true"
+                            [text]="'الخميس'"></app-calender>
+                        <div *ngFor="let x of thurs;let i=index">
+                            <app-calender (remove)="remove($event,i)" [canRemove]="true" [HideTogglebutton]="false"
+                                [text]="'الخميس'"></app-calender>
+                        </div>
+                    </div>
+                    <div>
+                        <app-calender (addMore)="addMore($event)" [UseCopy]="true" [HideTogglebutton]="true"
+                            [text]="'الجمعه'"></app-calender>
+                        <div *ngFor="let x of fri;let i=index">
+                            <app-calender (remove)="remove($event,i)" [canRemove]="true" [HideTogglebutton]="false"
+                                [text]="'الجمعه'"></app-calender>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+</div>
